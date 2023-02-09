@@ -1,10 +1,10 @@
-import RecipeItem from '@/my-app/components/recipeItem'
-import recipeService from '@/my-app/services/recipesService';
-import { RecipeProps } from '@/my-app/components/recipeItem';
+import RecipeItem from '@/components/recipeItem'
+import recipeService from '@/services/recipesService';
+import { RecipeProps } from '@/components/recipeItem';
 
 import { ParsedUrlQuery } from 'querystring';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import RecipeEditForm from '@/my-app/components/recipeEditForm';
+import RecipeEditForm from '@/components/recipeEditForm';
 import { CreateRecipeRequest, Recipe } from '@/types';
 
 interface Params extends ParsedUrlQuery {

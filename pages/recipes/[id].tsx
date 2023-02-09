@@ -1,6 +1,6 @@
-import RecipeItem from '@/my-app/components/recipeItem'
-import recipeService from '@/my-app/services/recipesService';
-import { RecipeProps } from '@/my-app/components/recipeItem';
+import RecipeItem from '@/components/recipeItem'
+import recipeService from '@/services/recipesService';
+import { RecipeProps } from '@/components/recipeItem';
 
 import { remark } from 'remark';
 import html from 'remark-html';

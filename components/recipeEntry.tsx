@@ -26,7 +26,7 @@ const RecipeEntryItem = ({name, hint}: {name: string, hint: string}) => (
       type="text"
       id={name}
       name={name}
-      defaultValue="test"
+      defaultValue=""
     ></input>
     <p className="text-gray-600 text-xs italic">{hint}</p>
   </div>

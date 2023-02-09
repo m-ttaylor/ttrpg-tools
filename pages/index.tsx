@@ -2,11 +2,11 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-import RecipeEntry from '@/my-app/components/recipeEntry'
-import recipeService from '@/my-app/services/recipesService';
+import RecipeEntry from '@/components/recipeEntry'
+import recipeService from '@/services/recipesService';
 import { Recipe, CreateRecipeRequest } from '@/types';
 
-import RecipeList from '@/my-app/components/recipeList';
+import RecipeList from '@/components/recipeList';
 
 export default function Home() {
   // const recipes = await getRecipes();
@@ -44,7 +44,7 @@ export default function Home() {
       </Head>
 
       <div className="container w-full mx-auto">
-        <div><h1 className="text-center text-6xl font-bold my-8">Mattthew's Cookbook</h1></div>
+        <div><h1 className="text-center text-6xl font-bold my-8">{"Mattthew's Cookbook"}</h1></div>
         <Image
           className="mx-auto rounded-3xl"
           width={600}
