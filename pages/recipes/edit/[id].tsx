@@ -6,6 +6,7 @@ import { ParsedUrlQuery } from 'querystring';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import RecipeEditForm from '@/components/recipeEditForm';
 import { CreateRecipeRequest, Recipe } from '@/types';
+import Container from '@/components/container';
 
 interface Params extends ParsedUrlQuery {
   id: string;
@@ -55,7 +56,11 @@ const updateRecipe = async (id: string, recipe: CreateRecipeRequest) => {
 };
 
 const EditRecipePage: NextPage<RecipeProps> = ({ recipe }) => {
-  return (<RecipeEditForm recipe={recipe} updateRecipe={updateRecipe} />);
+  return (
+    <Container>
+      <RecipeEditForm recipe={recipe} updateRecipe={updateRecipe} />
+    </Container>
+  );
 }
 
 export default EditRecipePage;

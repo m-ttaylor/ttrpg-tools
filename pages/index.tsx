@@ -7,6 +7,8 @@ import recipeService from '@/services/recipesService';
 import { Recipe, CreateRecipeRequest } from '@/types';
 
 import RecipeList from '@/components/recipeList';
+import TopBar from '@/components/topBar';
+import Container from '@/components/container';
 
 export default function Home() {
   // const recipes = await getRecipes();
@@ -43,34 +45,37 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="container w-full mx-auto">
-        <div><h1 className="text-center text-6xl font-bold my-8">{"Mattthew's Cookbook"}</h1></div>
-        <Image
-          className="mx-auto rounded-3xl"
-          width={600}
-          height={400}
-          priority={true}
-          unoptimized={true}
-          loader={() => "https://cdn.shopify.com/s/files/1/0262/7554/5176/products/DSC_6227_600x.jpg?v=1667484611"}
-          alt="picture of recipe book"
-          src="https://cdn.shopify.com/s/files/1/0262/7554/5176/products/DSC_6227_600x.jpg?v=1667484611"
-        />
-        <div className="">
-          <RecipeEntry createRecipe={createNewRecipe} />
+      <Container>   
+        <div className="container w-full mx-auto">
+          
+          <div><h1 className="text-center text-6xl font-bold my-8">{"Mattthew's Cookbook"}</h1></div>
+          <Image
+            className="mx-auto rounded-3xl"
+            width={600}
+            height={400}
+            priority={true}
+            unoptimized={true}
+            loader={() => "https://cdn.shopify.com/s/files/1/0262/7554/5176/products/DSC_6227_600x.jpg?v=1667484611"}
+            alt="picture of recipe book"
+            src="https://cdn.shopify.com/s/files/1/0262/7554/5176/products/DSC_6227_600x.jpg?v=1667484611"
+          />
+          <div className="">
+            <RecipeEntry createRecipe={createNewRecipe} />
+          </div>
+
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+            onClick={() => console.log("thanks for clicking me")}
+          >
+            Click Me!
+          </button>
+          
+          {/* <button onClick={()=>createNewRecipe()}>Create New Recipe</button> */}
+
+          {/* {recipes.map(recipe =>
+            <RecipeItem key={recipe._id} {...recipe} />)} */}
+          <RecipeList recipes={recipes} />
         </div>
-
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-          onClick={() => console.log("thanks for clicking me")}
-        >
-          Click Me!
-        </button>
-        
-        {/* <button onClick={()=>createNewRecipe()}>Create New Recipe</button> */}
-
-        {/* {recipes.map(recipe =>
-          <RecipeItem key={recipe._id} {...recipe} />)} */}
-        <RecipeList recipes={recipes} />
-      </div>
+      </Container>
     </>
   )
 }

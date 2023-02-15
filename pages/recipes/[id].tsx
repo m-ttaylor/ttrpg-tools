@@ -7,6 +7,7 @@ import html from 'remark-html';
 
 import { ParsedUrlQuery } from 'querystring';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import Container from '@/components/container';
 
 interface Params extends ParsedUrlQuery {
   id: string;
@@ -58,7 +59,11 @@ export const getStaticProps: GetStaticProps<RecipeProps, Params> = async (contex
 }
 
 const RecipePage: NextPage<RecipeProps> = ({ recipe }) => {
-  return (<RecipeItem recipe={recipe} />);
+  return (
+    <Container>
+      <RecipeItem recipe={recipe} />
+    </Container>
+  );
 }
 
 export default RecipePage;
