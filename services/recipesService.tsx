@@ -2,9 +2,10 @@
 // import type { NextApiRequest, NextApiResponse } from 'next'
 import { Recipe, CreateRecipeRequest } from "@/types";
 
+const baseUrl = "http://localhost:1337/api";
 const getRecipes = async () => {
 
-  const result: Recipe[] = await (await fetch("http://localhost:1337/api/recipes")).json()
+  const result: Recipe[] = await (await fetch(`${baseUrl}/recipes`)).json()
   console.log(result);
 
   return result;
@@ -12,14 +13,14 @@ const getRecipes = async () => {
 
 const getRecipe = async (id: string | null) => {
   
-  const result: Recipe = await (await fetch(`http://localhost:1337/api/recipes/${id}`)).json();
+  const result: Recipe = await (await fetch(`${baseUrl}/recipes/${id}`)).json();
 
   return result;
 }
 
 const createRecipe = async (request: CreateRecipeRequest) => {
 
-  const response = await fetch("http://localhost:1337/api/recipes", {
+  const response = await fetch(`${baseUrl}/recipes`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
@@ -33,7 +34,7 @@ const createRecipe = async (request: CreateRecipeRequest) => {
 
 const editRecipe = async (id: string, request: CreateRecipeRequest) => {
 
-  const response = await fetch(`http://localhost:1337/api/recipes/${id}`, {
+  const response = await fetch(`${baseUrl}/recipes/${id}`, {
     method: "PUT",
     headers: {
       'Content-Type': 'application/json',

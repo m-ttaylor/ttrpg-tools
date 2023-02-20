@@ -4,7 +4,19 @@ import { Recipe } from "@/types";
 export interface RecipeListProps {
   recipes: Recipe[]
 }
-export const RecipeListItem = ({ name, tags, id, description }: {name: Recipe["name"], tags: Recipe["tags"], id: Recipe["_id"], description: Recipe["description"]}) => {
+
+interface RecipeListItemProps {
+  name: Recipe["name"]
+  tags: Recipe["tags"]
+  id: Recipe["_id"]
+  description: Recipe["description"]
+}
+export const RecipeListItem = (props: RecipeListItemProps) => {
+  if (!props) {
+    return <></>
+  }
+  
+  const { name, tags, id, description } = props;
   const tagsList = tags.split(",");
 
   return (
